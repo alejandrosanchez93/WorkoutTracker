@@ -18,7 +18,18 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/tracker", {
 });
 
 // routes
-app.use(require("./public/api.js"));
+
+app.get("/", function(req, res) {
+res.send("Fitness Tracker!");
+});
+
+app.get("/stats", function(req, res) {
+res.send("This is the stats page");
+});
+
+app.get("/exercise", function(req, res) {
+res.send("exercise page");
+});
 
 app.listen(PORT, () => {
   console.log(`App running on port ${PORT}!`);
